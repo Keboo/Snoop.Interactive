@@ -1,0 +1,3 @@
+[submodule "snoopwpf"]
+	path = snoopwpf
+	url = https://github.com/snoopwpf/snoopwpf.git
