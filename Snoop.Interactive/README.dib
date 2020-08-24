@@ -1,0 +1,21 @@
+#!csharp
+
+#r "nuget: Snoop.Interactive"
+
+#!csharp
+
+Snoop.Interactive.Interactive.Start(36688);
+
+#!csharp
+
+#!connect named-pipe --kernel-name snoopui --pipe-name Snoop.Interactive
+
+#!csharp
+
+using System.Windows.;
+
+var cd = Dispatcher.CurrentDispatcher;
+cd.Invoke(() => {
+    var app = Application.Current;
+
+});

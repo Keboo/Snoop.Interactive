@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\snoopwpf\Snoop.Core\Data\TransientSettingsData.cs" Link="Data\TransientSettingsData.cs" />
+    <Compile Include="..\snoopwpf\Snoop.Core\Infrastructure\NativeMethods.cs" Link="NativeMethods.cs" />
+    <Compile Include="..\snoopwpf\Snoop.InjectorLauncher\InjectorLauncherCommandLineOptions.cs" Link="InjectorLauncherCommandLineOptions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.20374.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludeExeInPackage</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <Target Name="CopyOutputs" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <CopyItems Include="$(SolutionDir)..\snoopwpf\bin\Debug\Snoop.GenericInjector.*" />
+      <CopyItems Include="$(SolutionDir)..\snoopwpf\bin\Debug\Snoop.InjectorLauncher.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(CopyItems)" DestinationFolder="$(TargetDir)" />
+  </Target>
+
+  <Target Name="IncludeExeInPackage">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(TargetDir)Snoop.GenericInjector.*">
+        <PackagePath>build</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include="$(TargetDir)Snoop.InjectorLauncher.*">
+        <PackagePath>build</PackagePath>
+      </TfmSpecificPackageFile>
+
+      <TfmSpecificPackageFile Include="$(ProjectDir)*.targets">
+        <PackagePath>build</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
+
+</Project>

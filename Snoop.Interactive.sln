@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snoop.CLI", "Snoop.CLI.csproj", "{A9CB7FD9-78F7-4B55-9794-E92B51BE8058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snoop.CLI", "Snoop.CLI\Snoop.CLI.csproj", "{A9CB7FD9-78F7-4B55-9794-E92B51BE8058}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snoop.Interactive", "..\Snoop.Interactive\Snoop.Interactive.csproj", "{C5FEB39B-D18A-4078-BB02-1408BBDBA1F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snoop.Interactive", "Snoop.Interactive\Snoop.Interactive.csproj", "{C5FEB39B-D18A-4078-BB02-1408BBDBA1F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
